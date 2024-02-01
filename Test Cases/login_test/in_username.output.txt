@@ -1,0 +1,1 @@
+Username is not valid. Please contact an admin to create account.

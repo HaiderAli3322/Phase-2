@@ -1,0 +1,2 @@
+
+User 'NewUser2' created with sell-standard privileges.

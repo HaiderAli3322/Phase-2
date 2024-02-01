@@ -1,0 +1,5 @@
+login
+Admin12
+create
+Username: NewUser1
+User Type: full-standard

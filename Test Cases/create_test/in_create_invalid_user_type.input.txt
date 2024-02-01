@@ -1,0 +1,5 @@
+login
+Admin12
+create
+Username: InvalidUser
+User Type: user

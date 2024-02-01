@@ -1,0 +1,2 @@
+
+User 'NewUser1' created with full-standard privileges.

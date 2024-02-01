@@ -1,0 +1,6 @@
+Please enter a game title or a seller:
+
+Game Details
+Name:GameTitle
+Seller:SellerUsername
+Price:$gameprice

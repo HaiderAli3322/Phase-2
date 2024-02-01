@@ -1,0 +1,2 @@
+
+Username 'ExistingUser' already exists. Please choose a different username.

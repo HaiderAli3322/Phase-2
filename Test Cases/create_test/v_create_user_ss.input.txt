@@ -1,0 +1,5 @@
+login
+Admin12
+create
+Username: NewUser2
+User Type: sell-standard
