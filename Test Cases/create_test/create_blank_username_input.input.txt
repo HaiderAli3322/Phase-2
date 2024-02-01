@@ -1,0 +1,4 @@
+login
+admin_username
+create
+<press enter without entering a username>

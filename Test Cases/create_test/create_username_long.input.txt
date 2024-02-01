@@ -1,0 +1,5 @@
+login
+Admin12
+create
+Username: NewUser43412321312312323423
+User Type: admin

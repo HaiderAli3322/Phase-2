@@ -1,0 +1,4 @@
+login
+username
+search
+<Press Enter>

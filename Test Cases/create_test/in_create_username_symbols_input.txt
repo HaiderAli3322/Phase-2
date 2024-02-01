@@ -1,0 +1,5 @@
+login
+Admin12
+create
+Username: NewU$er4
+User Type: admin
