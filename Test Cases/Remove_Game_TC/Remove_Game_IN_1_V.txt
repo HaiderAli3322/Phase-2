@@ -1,1 +1,2 @@
-Input: BattleBlock
+Remove_Game
+BattleBlock

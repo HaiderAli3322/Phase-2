@@ -1,1 +1,1 @@
-Output: Invalid game title, Please input a valid game title
+Invalid game title, Please input a valid game title

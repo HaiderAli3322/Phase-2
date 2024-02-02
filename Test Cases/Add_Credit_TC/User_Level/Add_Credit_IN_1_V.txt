@@ -1,1 +1,2 @@
-Input: 100
+Add Credit
+100

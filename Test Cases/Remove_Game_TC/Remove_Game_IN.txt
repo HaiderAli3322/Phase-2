@@ -1,1 +1,1 @@
-Input: Remove_Game
+Remove_Game

@@ -1,1 +1,1 @@
-Output: Would you like to “view” or “add” to your wish list?
+Would you like to “view” or “add” to your wish list?

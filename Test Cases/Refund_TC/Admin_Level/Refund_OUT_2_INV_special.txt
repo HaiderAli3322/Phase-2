@@ -1,1 +1,1 @@
-Output: Refund unsuccessful, Insufficient Credit in seller account
+Refund unsuccessful, Insufficient Credit in seller account

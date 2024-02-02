@@ -1,2 +1,2 @@
-Output: Invalid User, please try again with a valid user
+Invalid User, please try again with a valid user
 	

@@ -1,1 +1,1 @@
-Output: Game Removed Succesfully!
+Game Removed Succesfully!

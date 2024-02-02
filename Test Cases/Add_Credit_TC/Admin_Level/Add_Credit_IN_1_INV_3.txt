@@ -1,2 +1,3 @@
-Input:  100
-	Steeve
+Add Credit
+100
+Steeve

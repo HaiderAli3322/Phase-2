@@ -1,1 +1,1 @@
-Output: Successfully added credit: 5$
+Successfully added credit: 5$

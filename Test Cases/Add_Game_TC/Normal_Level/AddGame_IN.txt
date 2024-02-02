@@ -1,1 +1,1 @@
-Input: Add Game
+Add Game

@@ -1,1 +1,1 @@
-Output: Successfully added credit: 5$ to Steve
+Successfully added credit: 100$ to Steve

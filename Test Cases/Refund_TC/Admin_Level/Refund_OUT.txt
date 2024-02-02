@@ -1,4 +1,3 @@
-Output:
-	Title:
-	Seller:
-	Amount of Credits:
+Title:
+Seller:
+	
