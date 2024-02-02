@@ -1,0 +1,3 @@
+Output: Which game would you like to add?:
+Title:
+Seller:

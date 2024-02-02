@@ -1,0 +1,1 @@
+Ouput: Invalid input, please choose between “view”, “add” or purchase

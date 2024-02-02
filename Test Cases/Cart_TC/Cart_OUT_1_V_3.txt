@@ -1,0 +1,6 @@
+Output: Successfully purchased cart
+—-----------Cart—---------
+Game-
+Title 1
+Title 2
+…

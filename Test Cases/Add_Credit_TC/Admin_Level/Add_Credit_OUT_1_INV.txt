@@ -1,0 +1,1 @@
+Output: Invalid amount, Please enter minimum amount or higher

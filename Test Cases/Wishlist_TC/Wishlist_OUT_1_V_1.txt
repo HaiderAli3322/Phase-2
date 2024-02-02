@@ -1,0 +1,6 @@
+Output: 
+ —-----------Wishlist—---------
+Game-
+Title 1
+Title 2
+…

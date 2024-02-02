@@ -1,0 +1,7 @@
+Output:
+  —-----------Cart—---------
+Game-
+Title 1
+Title 2
+…
+				Total:30
