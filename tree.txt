@@ -1,14 +1,17 @@
 Folder PATH listing
-Volume serial number is 1AD8-285A
+
 C:.
-³   README.md
-³   tree.txt
+³   
+³   
+³   
+³   
+³   
 ³   
 ÀÄÄÄTest Cases
     ÃÄÄÄAdd_Credit_TC
     ³   ÃÄÄÄAdmin_Level
     ³   ³       Add_Credit_IN.txt
-    ³   ³       Add_Credit_IN_1_INV.txt
+    ³   ³       Add_Credit_IN_1_INV_1.txt
     ³   ³       Add_Credit_IN_1_INV_2.txt
     ³   ³       Add_Credit_IN_1_INV_3.txt
     ³   ³       Add_Credit_IN_1_V.txt
@@ -56,7 +59,6 @@ C:.
     ³   ³       Buy_IN_V_3.txt
     ³   ³       Buy_IN_V_4.txt
     ³   ³       Buy_OUT.txt
-    ³   ³       BUY_OUT_.txt
     ³   ³       Buy_OUT_INV_1.txt
     ³   ³       Buy_OUT_INV_2.txt
     ³   ³       Buy_OUT_INV_3.txt
@@ -103,32 +105,37 @@ C:.
     ³       Cart_OUT_2_INV_2.txt
     ³       Cart_OUT_2_V.txt
     ³       
-    ÃÄÄÄcreate_test
-    ³       create_blank_username_input.input.txt
-    ³       create_blank_username_input.output.txt
-    ³       create_username_long.input.txt
-    ³       create_username_long.output.txt
-    ³       in_create.input.txt
-    ³       in_create_duplicate_username.input.txt
-    ³       in_create_duplicate_username.output.txt
-    ³       in_create_invalid_user_type.input.txt
-    ³       in_create_invalid_user_type.output.txt
-    ³       in_create_output.txt
-    ³       in_create_privilege.input.txt
-    ³       in_create_privilege.output.txt
-    ³       in_create_username_symbols_input.txt
-    ³       in_create_username_symbols_output.txt
-    ³       V_create.input.txt
-    ³       v_create.output.txt
-    ³       v_create_user_aa.input.txt
-    ³       v_create_user_aa.output.txt
-    ³       v_create_user_bs.input.txt
-    ³       v_create_user_bs.output.txt
-    ³       v_create_user_fs.input.txt
-    ³       v_create_user_fs.output.txt
-    ³       v_create_user_ss.input.txt
-    ³       v_create_user_ss.output.txt
-    ³       
+    ÃÄÄÄCreate_TC
+    ³   ÃÄÄÄAdmin_Level
+    ³   ³       Create_IN.txt
+    ³   ³       Create_IN_1_INV_1.txt
+    ³   ³       Create_IN_1_INV_2.txt
+    ³   ³       Create_IN_1_V_1.txt
+    ³   ³       Create_IN_2_INV.txt
+    ³   ³       Create_IN_2_V.txt
+    ³   ³       Create_IN_3_INV.txt
+    ³   ³       Create_IN_3_V.txt
+    ³   ³       Create_IN_4_INV.txt
+    ³   ³       Create_IN_4_V.txt
+    ³   ³       Create_IN_5_INV.txt
+    ³   ³       Create_OUT.txt
+    ³   ³       Create_OUT_1_INV_1.txt
+    ³   ³       Create_OUT_1_INV_2.txt
+    ³   ³       Create_OUT_1_V_1.txt
+    ³   ³       Create_OUT_2_INV.txt
+    ³   ³       Create_OUT_2_V.txt
+    ³   ³       Create_OUT_3_INV.txt
+    ³   ³       Create_OUT_3_V.txt
+    ³   ³       Create_OUT_4_INV.txt
+    ³   ³       Create_OUT_4_V.txt
+    ³   ³       Create_OUT_5_INV.txt
+    ³   ³       
+    ³   ÀÄÄÄUser_Level
+    ³           Create_IN_1_INV.txt
+    ³           Create_IN_2_INV.txt
+    ³           Create_OUT_1_INV.txt
+    ³           Create_OUT_2_INV.txt
+    ³           
     ÃÄÄÄDelete_TC
     ³   ÃÄÄÄAdmin_Level
     ³   ³       Delete_IN.txt
@@ -142,24 +149,24 @@ C:.
     ³           Delete_IN.txt
     ³           Delete_OUT.txt
     ³           
-    ÃÄÄÄlist_test
-    ³       in_list_input.txt
-    ³       in_list_no_games.output.txt
-    ³       in_list_output.txt
-    ³       v_list.input.txt
-    ³       v_list.output.txt
+    ÃÄÄÄList_TC
+    ³       List_IN_1_INV.txt
+    ³       List_IN_V.txt
+    ³       List_OUT_1_INV.txt
+    ³       List_OUT_INV.txt
+    ³       List_OUT_V.txt
     ³       
-    ÃÄÄÄlogin_test
-    ³       in_username.input.txt
-    ³       in_username.output.txt
-    ³       login.input.txt
-    ³       login.output.txt
-    ³       login_empty_input.input.txt
-    ³       login_empty_input.output.txt
-    ³       login_twice.input.txt
-    ³       login_twice.output.txt
-    ³       v_username.input.txt
-    ³       v_username.output.txt
+    ÃÄÄÄLogin_TC
+    ³       Login_IN.txt
+    ³       Login_IN_1_INV_1.txt
+    ³       Login_IN_1_INV_2.txt
+    ³       Login_IN_1_V.txt
+    ³       Login_IN_2_INV.txt
+    ³       Login_OUT.txt
+    ³       Login_OUT_1_INV_1.txt
+    ³       Login_OUT_1_INV_2.txt
+    ³       Login_OUT_1_V.txt
+    ³       Login_OUT_2_INV.txt
     ³       
     ÃÄÄÄLogout_TC
     ³       Logout_in.txt
@@ -199,21 +206,21 @@ C:.
     ³       Remove_Game_OUT_1_INV.txt
     ³       Remove_Game_OUT_1_V.txt
     ³       
-    ÃÄÄÄsearch_test
-    ³       in_search.input.txt
-    ³       in_search.output.txt
-    ³       in_search_game.input.txt
-    ³       in_search_game.output.txt
-    ³       in_search_seller.input.txt
-    ³       in_search_seller.output.txt
-    ³       search_empty_input.input.txt
-    ³       search_empty_input.output.txt
-    ³       search_stopped.input.txt
-    ³       search_stopped.output.txt
-    ³       v_search_game.input.txt
-    ³       v_search_game.output.txt
-    ³       v_search_seller.input.txt
-    ³       v_search_seller.output.txt
+    ÃÄÄÄSearch_TC
+    ³       Search_IN.txt
+    ³       Search_IN_1_INV_1.txt
+    ³       Search_IN_1_V_1.txt
+    ³       Search_IN_1_V_2.txt
+    ³       Search_IN_2_INV_1.txt
+    ³       Search_IN_2_INV_2.txt
+    ³       Search_IN_2_INV_3.txt
+    ³       Search_OUT.txt
+    ³       Search_OUT_1_INV_1.txt
+    ³       Search_OUT_1_V_1.txt
+    ³       Search_OUT_1_V_2.txt
+    ³       Search_OUT_2_INV_1.txt
+    ³       Search_OUT_2_INV_2.txt
+    ³       Search_OUT_2_INV_3.txt
     ³       
     ÃÄÄÄSell_TC
     ³   ÃÄÄÄAdmin_Level
