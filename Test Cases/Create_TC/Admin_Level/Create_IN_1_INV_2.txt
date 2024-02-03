@@ -1,0 +1,7 @@
+login
+admin_username
+create
+
+Username: hello
+User Type:
+<press enter without entering a user type>
