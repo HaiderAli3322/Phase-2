@@ -1,1 +1,2 @@
-Input: 1001
+Add Credit
+1001

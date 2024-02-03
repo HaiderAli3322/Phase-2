@@ -1,1 +1,1 @@
-Output: The refund is not possible, Marvi32 does not exist
+The refund is not possible, Marvi32 does not exist

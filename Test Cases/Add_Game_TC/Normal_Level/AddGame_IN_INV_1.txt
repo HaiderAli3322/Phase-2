@@ -1,1 +1,2 @@
-input: Invalid Title
+Add Game
+Battlmon

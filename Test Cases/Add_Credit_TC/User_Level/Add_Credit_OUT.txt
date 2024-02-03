@@ -1,1 +1,1 @@
-Output: Amount of credit: ( 5$ - 1000$ )
+Amount of credit: ( 5$ - 1000$ )

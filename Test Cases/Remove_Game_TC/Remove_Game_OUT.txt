@@ -1,2 +1,2 @@
-Output: Which game would you like to Remove from sale?
-	Title:
+Which game would you like to Remove from sale?
+Title:

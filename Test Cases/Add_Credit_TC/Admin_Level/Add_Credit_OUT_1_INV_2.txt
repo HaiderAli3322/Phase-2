@@ -1,1 +1,1 @@
-Output: Invalid amount please enter below maximum amount
+Invalid amount please enter below maximum amount

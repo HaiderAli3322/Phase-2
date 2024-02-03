@@ -1,5 +1,4 @@
-Output:
-  —-----------Cart—---------
+ —-----------Cart—---------
 Game-
 Title 1
 Title 2

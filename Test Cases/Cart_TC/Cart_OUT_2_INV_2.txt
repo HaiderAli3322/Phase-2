@@ -1,1 +1,1 @@
-Output: Invalid Seller, Please enter a valid seller username
+Invalid Seller, Please enter a valid seller username

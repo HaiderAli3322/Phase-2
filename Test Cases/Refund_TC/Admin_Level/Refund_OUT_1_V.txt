@@ -1,2 +1,2 @@
-Output: Which User would like to refund the game?
+Which User would like to refund the game?
 	

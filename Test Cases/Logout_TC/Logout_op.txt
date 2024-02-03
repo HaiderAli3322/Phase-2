@@ -1,1 +1,1 @@
-Output: Logout successfull!
+Logout successfull!

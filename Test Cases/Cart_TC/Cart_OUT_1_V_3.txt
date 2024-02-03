@@ -1,4 +1,4 @@
-Output: Successfully purchased cart
+Successfully purchased cart
 —-----------Cart—---------
 Game-
 Title 1
