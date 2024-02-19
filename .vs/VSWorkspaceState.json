@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\modules",
+    "\\modules\\FileManager",
+    "\\modules\\session",
+    "\\modules\\Transaction",
+    "\\modules\\TransactionProcessor",
+    "\\modules\\user"
+  ],
+  "SelectedNode": "\\modules\\FileManager\\main.cpp",
+  "PreviewInSolutionExplorer": false
+}
