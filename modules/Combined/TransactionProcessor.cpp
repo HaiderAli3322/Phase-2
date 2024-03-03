@@ -16,6 +16,15 @@ TransactionProcessor::TransactionProcessor(FileManager& fm, Session& session)
 bool TransactionProcessor::isUserLoggedIn() const {
     return isLoggedIn;
 }
+void TransactionProcessor::appendTransaction(const std::string& transaction) {
+        sessionTransactions.push_back(transaction);
+
+}
+
+std::vector<std::string>& TransactionProcessor::getSessionTransactions() {
+    return sessionTransactions;
+}
+
 
 void TransactionProcessor::processTransaction(const std::string& transactionCode) {
     std::string digitCode = transactionCode.substr(0, 2);
@@ -82,7 +91,7 @@ void TransactionProcessor::processCreate() {
 
 
     std::cout << "User account '" << newUsername << "' successfully created." << std::endl;
-    logTransaction("Create transaction processed successfully");
+    appendTransaction("Create transaction processed successfully");
 }
 
 void TransactionProcessor::processDelete() {
@@ -117,7 +126,7 @@ void TransactionProcessor::processDelete() {
     //TALK TO HAIDER
     fileManager.removeUser(usernameToDelete);
     std::cout << "User account '" << usernameToDelete << "' successfully deleted." << std::endl;
-    logTransaction("Delete transaction processed successfully");
+    appendTransaction("Delete transaction processed successfully");
 }
 
 void TransactionProcessor::processSell() {
@@ -159,7 +168,7 @@ void TransactionProcessor::processSell() {
     
     fileManager.updateGamesFile("gameFile",game.getGameName(),std::to_string(game.getGamePrice()),game.getSellerName());
 
-    logTransaction("Game successfully listed for sale.");
+    appendTransaction("Game successfully listed for sale.");
     }
 }
 
@@ -215,7 +224,7 @@ void TransactionProcessor::processBuy() {
     fileManager.writeDailyTransactionFile("dailyTransaction",transactionCode);
 
     std::cout << "Purchase successful. You now own the game '" << gameName << "'." << std::endl;
-    logTransaction("Buy transaction processed successfully");
+    appendTransaction("Buy transaction processed successfully");
 }
 
 void TransactionProcessor::processRefund() {
@@ -258,7 +267,7 @@ void TransactionProcessor::processRefund() {
 
     User seller = User::getUserByName(sellerName);
     User buyer = User::getUserByName(buyerName);
-    //TO:DO @Haider
+    
     seller.withdraw(creditAmount);
     buyer.deposit(creditAmount);
     fileManager.updateUsersFile("users.txt", sellerName, seller.getUserType(), seller.getBalance());
@@ -269,7 +278,7 @@ void TransactionProcessor::processRefund() {
     fileManager.writeDailyTransactionFile("transaction.txt", transactionCode);
 
     std::cout << "Refund successful. $" << creditAmount << " credited from '" << sellerName << "' to '" << buyerName << "'." << std::endl;
-    logTransaction("Refund transaction processed successfully");
+    appendTransaction("Refund transaction processed successfully");
 }
 
 void TransactionProcessor::processAddCredit() {
@@ -313,7 +322,7 @@ void TransactionProcessor::processAddCredit() {
     fileManager.writeDailyTransactionFile("transactions.txt", transactionCode);
 
     std::cout << "Credit added successfully. $" << creditAmount << " credited to '" << username << "'." << std::endl;
-    logTransaction("Add credit transaction processed successfully");
+    appendTransaction("Add credit transaction processed successfully");
 }
 
 void TransactionProcessor::processList() {
@@ -339,7 +348,7 @@ void TransactionProcessor::processList() {
         std::cout << "------------------------" << std::endl;
     }
 
-    logTransaction("List transaction processed successfully");
+    appendTransaction("List transaction processed successfully");
 }
 
 
@@ -367,8 +376,9 @@ void TransactionProcessor::processUserList() {
         std::cout << "---------------------" << std::endl;
     }
 
-    logTransaction("User List transaction processed successfully");
+    appendTransaction("User List transaction processed successfully");
 }
+
 
 void TransactionProcessor::processEndOfSession() {
     if (!isUserLoggedIn()) {
@@ -376,13 +386,15 @@ void TransactionProcessor::processEndOfSession() {
         return;
     }
 
-    std::vector<std::string> sessionTransactions = fileManager.getSessionTransactions();
-    fileManager.writeDailyTransactionFile("transactions.txt", sessionTransactions);
+    
+    for (const auto& line : sessionTransactions) {
+        fileManager.writeDailyTransactionFile("transactions.txt", line);
+    }
 
     std::cout << "End of session. Daily transactions logged." << std::endl;
 
     currentSession.endSession(currentSession.getCurrentSession());
-    logTransaction("End of Session transaction processed successfully");
+    appendTransaction("End of Session transaction processed successfully");
 }
 
 void TransactionProcessor::processLogin() {
@@ -406,7 +418,7 @@ void TransactionProcessor::processLogin() {
         isLoggedIn = true;
         currentSession.startSession(currentSession.getCurrentSession());
         std::cout << "Login successful. Welcome, " << username << "!" << std::endl;
-        logTransaction("Login transaction processed successfully");
+        appendTransaction("Login transaction processed successfully");
     }
     else {
         std::cout << "Error: Invalid user type for login." << std::endl;
@@ -421,7 +433,7 @@ void TransactionProcessor::processLogout() {
 
     std::cout << "Logout successful. Goodbye, " << currentSession.getCurrentSession()->getUsername() << "!" << std::endl;
     currentSession.endSession(currentSession.getCurrentSession());
-    logTransaction("Logout transaction processed successfully");
+    appendTransaction("Logout transaction processed successfully");
 }
 
 

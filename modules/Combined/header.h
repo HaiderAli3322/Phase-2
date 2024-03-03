@@ -114,7 +114,7 @@ class TransactionProcessor {
 private:
     FileManager& fileManager;  // Reference to FileManager object
     Session& currentSession;   // Reference to Session object
-
+    std::vector<std::string> sessionTransactions= {};
     // Private helper method to check if a user is logged in
     bool isLoggedIn;
 
@@ -125,6 +125,7 @@ public:
     // Method to process a transaction
     void processTransaction(const std::string& transactionCode);
     bool isUserLoggedIn() const;
+    
 private:
     // Private helper methods for each transaction type
     void processLogin();
@@ -138,7 +139,8 @@ private:
     void processList();
     void processUserList();
     void processEndOfSession();
-
+    void appendTransaction(const std::string& transactionDetails);
+    std::vector<std::string>& getSessionTransactions();
     // Private helper method to log transaction details
     void logTransaction(const std::string& transactionDetails);
 };

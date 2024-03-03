@@ -1,7 +1,7 @@
 #include <iostream>
 #include "header.h"
-#include "vector"
-#include "sstream"
+#include <fstream>
+#include <sstream>
 //method called readUserFiler that reads the user file void method type
 
     void FileManager::readUserFile(){
@@ -65,61 +65,61 @@
 
     //method called updateUsersFile that allows us to update the users file and add new users to the file
     void FileManager::updateUsersFile(const string& filename, const string& username, const string& userType, const int& balance){
-        // want to update the users file with the username, userType and balance
-        if (isUserExists(username)) {
-            // Open the input file to read its contents
-            std::ifstream inFile(filename);
-            if (inFile.is_open()) {
-                // Create a temporary file to store modified content
-                std::ofstream tempFile("temp.txt");
-                std::string line;
-
-                // Read each line from the input file
-                while (std::getline(inFile, line)) {
-                    std::istringstream iss(line);
-                    std::string currentUsername, currentUserType;
-                    int currentBalance;
-
-                    // Extract username, userType, and balance from the line
-                    if (iss >> currentUsername >> currentUserType >> currentBalance) {
-                        // Check if the current line corresponds to the target user
-                        if (currentUsername == username) {
-                            // Update the balance for the target user
-                            tempFile << username << " " << userType << " " << balance << std::endl;
-                            std::cout << "User balance updated." << std::endl;
-                        } else {
-                            // Copy the line as it is to the temporary file
-                            tempFile << line << std::endl;
-                        }
+    // want to update the users file with the username, userType and balance
+         if (isUserExists(username)) {
+        // Open the input file to read its contents
+        std::ifstream inFile(filename);
+        if (inFile.is_open()) {
+            // Create a temporary file to store modified content
+            std::ofstream tempFile("temp.txt");
+            std::string line;
+            
+            // Read each line from the input file
+            while (std::getline(inFile, line)) {
+                std::istringstream iss(line);
+                std::string currentUsername, currentUserType;
+                int currentBalance;
+                
+                // Extract username, userType, and balance from the line
+                if (iss >> currentUsername >> currentUserType >> currentBalance) {
+                    // Check if the current line corresponds to the target user
+                    if (currentUsername == username) {
+                        // Update the balance for the target user
+                        tempFile << username << " " << userType << " " << balance << std::endl;
+                        std::cout << "User balance updated." << std::endl;
+                    } else {
+                        // Copy the line as it is to the temporary file
+                        tempFile << line << std::endl;
                     }
                 }
-
-                // Close the input and temporary files
-                inFile.close();
-                tempFile.close();
-
-                // Replace the original file with the temporary file
-                std::remove(filename.c_str());
-                std::rename("temp.txt", filename.c_str());
-            } else {
-                std::cout << "Unable to open file: " << filename << std::endl;
             }
+            
+            // Close the input and temporary files
+            inFile.close();
+            tempFile.close();
+            
+            // Replace the original file with the temporary file
+            std::remove(filename.c_str());
+            std::rename("temp.txt", filename.c_str());
         } else {
-            // The user doesn't exist, add them to the file
-            std::ofstream outFile(filename, std::ios::app);
-            if (outFile.is_open()) {
-                outFile << username << " " << userType << " " << balance << std::endl;
-                std::cout << "User added to file." << std::endl;
-                outFile.close();
-            } else {
-                std::cout << "Unable to open file: " << filename << std::endl;
-            }
+            std::cout << "Unable to open file: " << filename << std::endl;
+        }
+    } else {
+        // The user doesn't exist, add them to the file
+        std::ofstream outFile(filename, std::ios::app);
+        if (outFile.is_open()) {
+            outFile << username << " " << userType << " " << balance << std::endl;
+            std::cout << "User added to file." << std::endl;
+            outFile.close();
+        } else {
+            std::cout << "Unable to open file: " << filename << std::endl;
+        }
         }
     }
 
     //method called updateGamesFile that allows us to update the games file and add new games to the file
     void FileManager::updateGamesFile( const string& filename, const string& gameName, const string&gamePrice, const string& sellerName){
-
+        
         ofstream outFile("games.txt", ios::app);
         if (outFile.is_open()) {
             outFile << gameName+"_" << gamePrice +"_" << sellerName + "_" << endl;
@@ -199,63 +199,10 @@ void FileManager::removeUser(const string& username) {
     }
 }
 
-//bool isUserExists(string name) {
-//
-//    }
+bool isUserExists(string name) {
 
-vector<Game> FileManager::getAvailableGames() {
-    std::vector<Game> availableGames;
-    std::ifstream inFile(gamesFile); // Assuming gamesFile is the path to your games file
-    std::string line;
-
-    if (!inFile.is_open()) {
-        std::cerr << "Unable to open file: " << gamesFile << std::endl;
-        return availableGames; // Return empty vector if file can't be opened
     }
 
-    while (getline(inFile, line)) {
-        stringstream ss(line);
-        string gameName, sellerName, priceStr;
-        double price = 0.0;
-
-        getline(ss, gameName, ',');
-        getline(ss, sellerName, ',');
-        getline(ss, priceStr, ',');
-        price = stod(priceStr); // Convert price string to double
-
-        availableGames.push_back(Game(gameName, sellerName, price));
-    }
-
-    inFile.close();
-    return availableGames;
-}
-
-vector<User> getUsers() {
-    vector<User> users;
-    ifstream file("users.txt"); // Assuming userFile is the path to your user data file
-    string line;
-
-    if (!file.is_open()) {
-        cerr << "Failed to open users file." << std::endl;
-        return users;
-    }
-
-    while (getline(file, line)) {
-        stringstream ss(line);
-        string username, userType;
-        double balance;
-        string temp;
-
-        getline(ss, username, ',');
-        getline(ss, userType, ',');
-        getline(ss, temp, ',');
-        balance = std::stod(temp);
-
-        users.emplace_back(username, userType, balance); // Assuming a suitable constructor exists
-    }
-
-    return users;
-}
 
 
 
