@@ -6,6 +6,8 @@
 #include <fstream>
 #include <string>
 #include <set>
+#include "vector"
+#include "Game.cpp"
 
 using namespace std;
 //---------------------------------------------
@@ -34,6 +36,24 @@ public:
 };
 //---------------------------------------------
 
+class Game {
+private:
+
+    string gameName="";
+    string userName="";
+    double price=0;
+
+public:
+    Game(const std::string& g, const std::string& u, double p);
+    void setGameName(string g);
+    void setSellerName(string u);
+    void setPrice(double p);
+    string getGameName();
+    string getSellerName();
+    double getGamePrice();
+    static Game getGameByName(string name);
+
+};
 //---------------------------------------------
 class FileManager{
 protected:
@@ -50,28 +70,13 @@ public:
     void readTransactionsFile();
     void removeUser(const string& username);
     bool isUserExists(string username);
+    vector<Game> getAvailableGames();
+    vector<User>getUsers();
+
 
 };
 
 //---------------------------------------------
-class Game {
-private:
-
-    string gameName="";
-    string userName="";
-    double price=0;
-
-public:
-    Game(const std::string& g, const std::string& u, double p);
-    void setGameName(string g);
-    void setSellerName(string u);
-    void setPrice(double p);
-    string getGameName();
-    string getSellerName();
-    double getGamePrice();
-
-};
-
 //---------------------------------------------
 class InputValidator {
 public:

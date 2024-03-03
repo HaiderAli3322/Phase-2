@@ -256,11 +256,17 @@ void TransactionProcessor::processRefund() {
         return;
     }
 
-    fileManager.getUserByUsername(sellerName).deductAmount(creditAmount);
-    fileManager.getUserByUsername(buyerName).creditAmount(creditAmount);
+    User seller = User::getUserByName(sellerName);
+    User buyer = User::getUserByName(buyerName);
+    //TO:DO @Haider
+    seller.withdraw(creditAmount);
+    buyer.deposit(creditAmount);
+    fileManager.updateUsersFile("users.txt", sellerName, seller.getUserType(), seller.getBalance());
+    fileManager.updateUsersFile("users.txt", buyerName, buyer.getUserType(), buyer.getBalance());
+
 
     std::string transactionCode = "05_" + buyerName + "_" + sellerName + "_" + std::to_string(creditAmount);
-    fileManager.writeDailyTransactionFile(transactionCode);
+    fileManager.writeDailyTransactionFile("transaction.txt", transactionCode);
 
     std::cout << "Refund successful. $" << creditAmount << " credited from '" << sellerName << "' to '" << buyerName << "'." << std::endl;
     logTransaction("Refund transaction processed successfully");
@@ -300,7 +306,8 @@ void TransactionProcessor::processAddCredit() {
         return;
     }
 
-    fileManager.getUserByUsername(username).creditAmount(creditAmount);
+    User user = User::getUserByName(username);
+    user.deposit(creditAmount);
 
     std::string transactionCode = "06_" + username + "_$" + std::to_string(creditAmount);
     fileManager.writeDailyTransactionFile("transactions.txt", transactionCode);
@@ -317,18 +324,24 @@ void TransactionProcessor::processList() {
 
     std::vector<Game> gamesFile = fileManager.getAvailableGames();
 
+    if (gamesFile.empty()) {
+        std::cout << "No games available at the moment." << std::endl;
+        return;
+    }
+
     std::cout << "List of Available Games:" << std::endl;
     std::cout << "------------------------" << std::endl;
 
-    for (const auto& game : gamesFile) {
-        std::cout << "Game Name: " << game.getName() << std::endl;
+    for (auto& game : gamesFile) {
+        std::cout << "Game Name: " << game.getGameName() << std::endl; // Corrected method name
         std::cout << "Seller: " << game.getSellerName() << std::endl;
-        std::cout << "Price: $" << game.getPrice() << std::endl;
+        std::cout << "Price: $" << game.getGamePrice() << std::endl; // Corrected method name
         std::cout << "------------------------" << std::endl;
     }
 
     logTransaction("List transaction processed successfully");
 }
+
 
 void TransactionProcessor::processUserList() {
     if (!isUserLoggedIn()) {
@@ -341,13 +354,13 @@ void TransactionProcessor::processUserList() {
         return;
     }
 
-    std::vector<User> usersFile = fileManager.getActiveUsers();
+    std::vector<User> usersFile = fileManager.getUsers();
 
-    std::cout << "List of Active Users:" << std::endl;
+    std::cout << "List of Users:" << std::endl;
     std::cout << "---------------------" << std::endl;
 
     //TO:DO fix lol
-    for (const auto& user : usersFile) {
+    for (auto& user : usersFile) {
         std::cout << "Username: " << user.getUsername() << std::endl;
         std::cout << "Account Type: " << user.getUserType() << std::endl;
         std::cout << "Credit: $" << user.getBalance() << std::endl;
@@ -386,12 +399,12 @@ void TransactionProcessor::processLogin() {
         std::cout << "Error: User '" << username << "' does not exist." << std::endl;
         return;
     }
-
-    std::string userType = fileManager.getUserTypeByUsername(username);
+    User user = User::getUserByName(username);
+    string userType = user.getUserType();
 
     if (userType == "admin" || userType == "full-standard" || userType == "buy-standard" || userType == "sell-standard") {
         isLoggedIn = true;
-        currentSession.startSession(fileManager.getUserByUsername(username));
+        currentSession.startSession(currentSession.getCurrentSession());
         std::cout << "Login successful. Welcome, " << username << "!" << std::endl;
         logTransaction("Login transaction processed successfully");
     }
@@ -411,28 +424,5 @@ void TransactionProcessor::processLogout() {
     logTransaction("Logout transaction processed successfully");
 }
 
-void TransactionProcessor::writeDailyTransactionFile(const std::vector<std::string>& transactions) {
-    std::ofstream dailyTransactionFile(fileManager.getDailyTransactionFilePath(), std::ios_base::app);
 
-    if (dailyTransactionFile.is_open()) {
-        for (const auto& transaction : transactions) {
-            dailyTransactionFile << transaction << std::endl;
-        }
-        dailyTransactionFile.close();
-    }
-    else {
-        std::cerr << "Error: Unable to open daily transaction file for writing." << std::endl;
-    }
-}
 
-void TransactionProcessor::logTransaction(const std::string& logMessage) const {
-    std::ofstream logFile(fileManager.getLogFilePath(), std::ios_base::app);
-
-    if (logFile.is_open()) {
-        logFile << logMessage << std::endl;
-        logFile.close();
-    }
-    else {
-        std::cerr << "Error: Unable to open log file for writing." << std::endl;
-    }
-}
