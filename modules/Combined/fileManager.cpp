@@ -31,8 +31,25 @@
 
     }
 
+    bool FileManager::isGameExists(string name) {
+        ifstream inFile("games.txt");
+        if (inFile.is_open()) {
+            string line;
+            while (getline(inFile, line)) {
+                if(line.find(name)) {
+                    return true;
+                }
+            }
+            inFile.close();
+        } else {
+            cout << "Unable to open file: games.txt" << endl;
+        }
+
+        return false;
+    }
+
     //method called writeTransactionsFile that allows us to update the ransactions file and add new transactions to the file
-    void FileManager::writeTransactionFile(const string& filename, const string& transactionCode) {
+    void FileManager::writeDailyTransactionFile(const string& filename, const string& transactionCode) {
         ofstream outFile(filename, ios::app); // Open file in append mode
         if (outFile.is_open()) {
             outFile << transactionCode << endl;
@@ -107,8 +124,39 @@
         return false;
     }
 
+void FileManager::removeUser(const string& username) {
+    ifstream inFile(userFile);
+    ofstream outFile("temp.txt", ios::out | ios::trunc);
+    string line;
 
-    bool isUserExists(string name) {
+    if (!inFile.is_open() || !outFile.is_open()) {
+        cerr << "Error opening files!" << endl;
+        return;
+    }
+
+    bool userFound = false;
+    while (getline(inFile, line)) {
+        if (line.length() >= username.length() + 1 && line.substr(0, username.length() + 1) != username + " ") {
+            outFile << line << endl;
+        } else {
+            userFound = true;
+        }
+    }
+
+    inFile.close();
+    outFile.close();
+
+    if (userFound) {
+        if (remove(userFile.c_str()) != 0 || rename("temp.txt", userFile.c_str()) != 0) {
+            cerr << "Error updating the user file." << endl;
+        }
+    } else {
+        remove("temp.txt");
+        cout << "User not found." << endl;
+    }
+}
+
+bool isUserExists(string name) {
 
     }
 

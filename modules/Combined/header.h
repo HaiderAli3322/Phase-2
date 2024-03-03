@@ -42,10 +42,12 @@ protected:
 public:
     void readUserFile();
     void readGamesFile();
-    void writeTransactionFile(const string& filename, const string& transactionCode);
+    bool isGameExists(string name);
+    void writeDailyTransactionFile(const string& filename, const string& transactionCode);
     void updateUsersFile(const string& filename, const string& username, const string& userType, const int& balance);
     void updateGamesFile(const string& filename, const string& gamePrice, const string& gameName, const string& sellerName);
     void readTransactionsFile();
+    void removeUser(const string& username);
     bool isUserExists(string username);
 
 };

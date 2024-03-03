@@ -75,7 +75,7 @@ void TransactionProcessor::processCreate() {
     }
 
     std::string transactionCode = "01_" + newUsername + "_" + userType;
-    fileManager.writeTransactionFile("transactions.txt", transactionCode);
+    fileManager.writeDailyTransactionFile("transactions.txt", transactionCode);
 
     User newUser = User(newUsername, userType, 0);
     fileManager.updateUsersFile("users.txt", newUsername, userType, 0);
@@ -112,11 +112,10 @@ void TransactionProcessor::processDelete() {
 
     std::string transactionCode = "02_" + usernameToDelete;
     //TALK TO HAIDER
-    fileManager.writeToDailyTransactionFile(transactionCode);
+    fileManager.writeDailyTransactionFile("transaction.txt", transactionCode);
 
     //TALK TO HAIDER
     fileManager.removeUser(usernameToDelete);
-    fileManager.writeUsersFile();
     std::cout << "User account '" << usernameToDelete << "' successfully deleted." << std::endl;
     logTransaction("Delete transaction processed successfully");
 }
@@ -155,7 +154,7 @@ void TransactionProcessor::processSell() {
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     std::string transactionCode = "03_" + game.getGameName() + "_" + game.getSellerName() + "_" + std::to_string(game.getGamePrice());
-    fileManager.writeTransactionFile("transactions",transactionCode);
+    fileManager.writeDailyTransactionFile("transactions",transactionCode);
 
     
     fileManager.updateGamesFile("gameFile",game.getGameName(),std::to_string(game.getGamePrice()),game.getSellerName());
@@ -211,7 +210,7 @@ void TransactionProcessor::processBuy() {
     currentSession.getCurrentSession()->addGame(gameName);
 
     std::string transactionCode = "04_" + gameName + "_" + sellerName + "_" + currentSession.getCurrentSession()->getUsername() + "_" + std::to_string(gamePrice);
-    fileManager.writeTransactionFile(transactionCode);
+    fileManager.writeDailyTransactionFile(transactionCode);
 
     std::cout << "Purchase successful. You now own the game '" << gameName << "'." << std::endl;
     logTransaction("Buy transaction processed successfully");
@@ -259,7 +258,7 @@ void TransactionProcessor::processRefund() {
     fileManager.getUserByUsername(buyerName).creditAmount(creditAmount);
 
     std::string transactionCode = "05_" + buyerName + "_" + sellerName + "_" + std::to_string(creditAmount);
-    fileManager.writeToDailyTransactionFile(transactionCode);
+    fileManager.writeDailyTransactionFile(transactionCode);
 
     std::cout << "Refund successful. $" << creditAmount << " credited from '" << sellerName << "' to '" << buyerName << "'." << std::endl;
     logTransaction("Refund transaction processed successfully");
@@ -302,7 +301,7 @@ void TransactionProcessor::processAddCredit() {
     fileManager.getUserByUsername(username).creditAmount(creditAmount);
 
     std::string transactionCode = "06_" + username + "_$" + std::to_string(creditAmount);
-    fileManager.writeToDailyTransactionFile(transactionCode);
+    fileManager.writeDailyTransactionFile("transactions.txt", transactionCode);
 
     std::cout << "Credit added successfully. $" << creditAmount << " credited to '" << username << "'." << std::endl;
     logTransaction("Add credit transaction processed successfully");
@@ -363,7 +362,7 @@ void TransactionProcessor::processEndOfSession() {
     }
 
     std::vector<std::string> sessionTransactions = fileManager.getSessionTransactions();
-    writeDailyTransactionFile(sessionTransactions);
+    fileManager.writeDailyTransactionFile("transactions.txt", sessionTransactions);
 
     std::cout << "End of session. Daily transactions logged." << std::endl;
 
