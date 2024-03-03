@@ -59,3 +59,15 @@ void User::withdraw(double amount) {
     this->balance -= amount;
 }
 
+bool User::ownsGame(const string &name) {
+    return ownedGames.find(name) != ownedGames.end();
+}
+
+void User::addGame(const std::string &name) {
+    ownedGames.insert(name);
+}
+
+void User::removeGame(const std::string &name) {
+    ownedGames.erase(name);
+}
+

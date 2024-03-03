@@ -2,7 +2,7 @@
 #include <iostream>
 
 using namespace std;
-bool InputValidator::isStringInRange(string& u) {
+bool InputValidator::isStringInRange(const string& u) {
     for (char ch : u) {
         int ascii = static_cast<int>(ch);
         if (ascii < 65 || ascii > 122) {
@@ -12,7 +12,7 @@ bool InputValidator::isStringInRange(string& u) {
     return true;
 }
 
-bool InputValidator::validateUser(string& u, string& uType) {
+bool InputValidator::validateUser(const string& u,const string& uType) {
     if (u.length() <= 15) {
         if (uType.length() <= 2) {
             if (!isStringInRange(u)) {
@@ -34,7 +34,7 @@ bool InputValidator::validateUser(string& u, string& uType) {
     return true;
 }
 
-bool InputValidator::validateGame(string& g) {
+bool InputValidator::validateGame(const string& g) {
     if (g.length() <= 19) {
         if (!isStringInRange(g)) {
             cout << "There are special characters in the Game name!" << endl;

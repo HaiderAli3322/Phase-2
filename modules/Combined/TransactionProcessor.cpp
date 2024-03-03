@@ -8,6 +8,8 @@
 #include <algorithm>
 #include <vector>
 
+using namespace std;
+
 TransactionProcessor::TransactionProcessor(FileManager& fm, Session& session)
     : fileManager(fm), currentSession(session), isLoggedIn(false) {}
 
@@ -43,7 +45,7 @@ void TransactionProcessor::processCreate() {
         return;
     }
 
-    if (currentSession.currentUser.getUserType() != "admin") {
+    if (currentSession.getCurrentSession()->getUserType() != "admin") {
         std::cout << "Error: Only admin users can create new user accounts." << std::endl;
         return;
     }
@@ -56,6 +58,7 @@ void TransactionProcessor::processCreate() {
         std::cout << "Error: Invalid username. It must be alphanumeric, between 1 and 15 characters." << std::endl;
         return;
     }
+
 
     if (fileManager.isUserExists(newUsername)) {
         std::cout << "Error: User '" << newUsername << "' already exists." << std::endl;
@@ -72,11 +75,11 @@ void TransactionProcessor::processCreate() {
     }
 
     std::string transactionCode = "01_" + newUsername + "_" + userType;
-    fileManager.writeTransactionFile(transactionCode);
+    fileManager.writeTransactionFile("transactions.txt", transactionCode);
 
-    User newUser(newUsername, userType);
-    fileManager.addUser(newUser);
-    fileManager.writeUsersFile();
+    User newUser = User(newUsername, userType, 0);
+    fileManager.updateUsersFile("users.txt", newUsername, userType, 0);
+
 
     std::cout << "User account '" << newUsername << "' successfully created." << std::endl;
     logTransaction("Create transaction processed successfully");
@@ -88,7 +91,7 @@ void TransactionProcessor::processDelete() {
         return;
     }
 
-    if (currentSession.currentUser.getUserType() != "admin") {
+    if (currentSession.getCurrentSession()->getUserType() != "admin") {
         std::cout << "Error: Only admin users can delete user accounts." << std::endl;
         return;
     }
@@ -102,14 +105,16 @@ void TransactionProcessor::processDelete() {
         return;
     }
 
-    if (usernameToDelete == currentSession.currentUser.getUsername()) {
+    if (usernameToDelete == currentSession.getCurrentSession()->getUsername()) {
         std::cout << "Error: Cannot delete the current user's account." << std::endl;
         return;
     }
 
     std::string transactionCode = "02_" + usernameToDelete;
+    //TALK TO HAIDER
     fileManager.writeToDailyTransactionFile(transactionCode);
 
+    //TALK TO HAIDER
     fileManager.removeUser(usernameToDelete);
     fileManager.writeUsersFile();
     std::cout << "User account '" << usernameToDelete << "' successfully deleted." << std::endl;
@@ -122,7 +127,7 @@ void TransactionProcessor::processSell() {
         return;
     }
 
-    if (currentSession.currentUser.getUserType() == "buy-standard") {
+    if (currentSession.getCurrentSession()->getUserType() == "buy-standard") {
         std::cout << "Error: buy-standard users cannot sell games." << std::endl;
         return;
     }
@@ -142,8 +147,9 @@ void TransactionProcessor::processSell() {
         std::cout << "Error: Invalid price. Price must be between 0.01 and 999.99." << std::endl;
         return;
     }
-    if(checker.validateGame(tempName)&&checker.validatePrice(price)&&checker.validateUser(currentSession.currentUser.getUsername())){
-        Game game(tempName, currentSession.currentSession.currentUser.getUsername(), price);
+
+    if(checker.validateGame(tempName) && checker.validatePrice(price) && checker.validateUser(currentSession.getCurrentSession()->getUsername(), currentSession.getCurrentSession()->getUserType())){
+        Game game(tempName, currentSession.getCurrentSession()->getUsername(), price);
     
 
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -164,7 +170,7 @@ void TransactionProcessor::processBuy() {
         return;
     }
 
-    if (currentSession.currentUser.getUserType() == "standard-sell") {
+    if (currentSession.getCurrentSession()->getUserType() == "standard-sell") {
         std::cout << "Error: Standard-sell users are not allowed to make purchases." << std::endl;
         return;
     }
@@ -189,21 +195,22 @@ void TransactionProcessor::processBuy() {
 
     double gamePrice = fileManager.getGamePrice(gameName);
 
-    if (currentSession.currentUser.getAccountBalance() < gamePrice) {
+    if (currentSession.getCurrentSession()->getBalance() < gamePrice) {
         std::cout << "Error: Insufficient funds. You do not have enough money to purchase the game." << std::endl;
         return;
     }
 
-    if (currentSession.currentUser.ownsGame(gameName)) {
+
+    if (currentSession.getCurrentSession()->ownsGame(gameName)) {
         std::cout << "Error: You already own a copy of the game '" << gameName << "'." << std::endl;
         return;
     }
 
-    currentSession.currentUser.deductAmount(gamePrice);
+    currentSession.getCurrentSession()->withdraw(gamePrice);
     fileManager.getUserByUsername(sellerName).creditAmount(gamePrice);
-    currentSession.currentUser.addGameToCollection(gameName);
+    currentSession.getCurrentSession()->addGame(gameName);
 
-    std::string transactionCode = "04_" + gameName + "_" + sellerName + "_" + currentSession.currentUser.getUsername() + "_" + std::to_string(gamePrice);
+    std::string transactionCode = "04_" + gameName + "_" + sellerName + "_" + currentSession.getCurrentSession()->getUsername() + "_" + std::to_string(gamePrice);
     fileManager.writeTransactionFile(transactionCode);
 
     std::cout << "Purchase successful. You now own the game '" << gameName << "'." << std::endl;
@@ -216,7 +223,7 @@ void TransactionProcessor::processRefund() {
         return;
     }
 
-    if (currentSession.currentUser.getUserType() != "admin") {
+    if (currentSession.getCurrentSession()->getUserType() != "admin") {
         std::cout << "Error: Only admins are allowed to issue refunds." << std::endl;
         return;
     }
@@ -264,13 +271,13 @@ void TransactionProcessor::processAddCredit() {
         return;
     }
 
-    if (currentSession.currentUser.getUserType() != "admin") {
+    if (currentSession.getCurrentSession()->getUserType() != "admin") {
         std::cout << "Error: Only admins are allowed to add credit." << std::endl;
         return;
     }
 
     std::string username;
-    if (currentSession.currentUser.getUserType() == "admin") {
+    if (currentSession.getCurrentSession()->getUserType() == "admin") {
         std::cout << "Enter the username of the account to which credit is being added: ";
         std::getline(std::cin, username);
 
@@ -280,7 +287,7 @@ void TransactionProcessor::processAddCredit() {
         }
     }
     else {
-        username = currentSession.currentUser.getUsername();
+        username = currentSession.getCurrentSession()->getUsername();
     }
 
     double creditAmount;
@@ -328,7 +335,7 @@ void TransactionProcessor::processUserList() {
         return;
     }
 
-    if (currentSession.currentUser.getUserType() != "admin") {
+    if (currentSession.getCurrentSession()->getUserType() != "admin") {
         std::cout << "Error: User must be an admin to view the user list." << std::endl;
         return;
     }
@@ -338,10 +345,11 @@ void TransactionProcessor::processUserList() {
     std::cout << "List of Active Users:" << std::endl;
     std::cout << "---------------------" << std::endl;
 
+    //TO:DO fix lol
     for (const auto& user : usersFile) {
         std::cout << "Username: " << user.getUsername() << std::endl;
         std::cout << "Account Type: " << user.getUserType() << std::endl;
-        std::cout << "Credit: $" << user.getCredit() << std::endl;
+        std::cout << "Credit: $" << user.getBalance() << std::endl;
         std::cout << "---------------------" << std::endl;
     }
 
@@ -359,13 +367,13 @@ void TransactionProcessor::processEndOfSession() {
 
     std::cout << "End of session. Daily transactions logged." << std::endl;
 
-    currentSession.endSession();
+    currentSession.endSession(currentSession.getCurrentSession());
     logTransaction("End of Session transaction processed successfully");
 }
 
 void TransactionProcessor::processLogin() {
     if (isUserLoggedIn()) {
-        std::cout << "Error: User '" << currentSession.currentUser.getUsername() << "' is already logged in." << std::endl;
+        std::cout << "Error: User '" << currentSession.getCurrentSession()->getUsername() << "' is already logged in." << std::endl;
         return;
     }
 
@@ -397,8 +405,8 @@ void TransactionProcessor::processLogout() {
         return;
     }
 
-    std::cout << "Logout successful. Goodbye, " << currentSession.currentUser.getUsername() << "!" << std::endl;
-    currentSession.endSession();
+    std::cout << "Logout successful. Goodbye, " << currentSession.getCurrentSession()->getUsername() << "!" << std::endl;
+    currentSession.endSession(currentSession.getCurrentSession());
     logTransaction("Logout transaction processed successfully");
 }
 

@@ -5,9 +5,34 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-
+#include <set>
 
 using namespace std;
+//---------------------------------------------
+class User {
+private:
+    string username;
+    string userType;
+    double balance;
+    set<std::string> ownedGames;
+
+public:
+    User(string username, string userType, double balance);
+    User();
+    string getUsername();
+    string getUserType();
+    double getBalance();
+    void setBalance(double balance);
+    void setUsername(string username);
+    void setUserType(string userType);
+    void deposit(double amount);
+    void withdraw(double amount);
+    bool ownsGame(const std::string& name);
+    void addGame(const std::string& name);
+    void removeGame(const std::string& name);
+};
+//---------------------------------------------
+
 //---------------------------------------------
 class FileManager{
 protected:
@@ -21,6 +46,7 @@ public:
     void updateUsersFile(const string& filename, const string& username, const string& userType, const int& balance);
     void updateGamesFile(const string& filename, const string& gamePrice, const string& gameName, const string& sellerName);
     void readTransactionsFile();
+    bool isUserExists(string username);
 
 };
 
@@ -46,9 +72,9 @@ public:
 //---------------------------------------------
 class InputValidator {
 public:
-    bool isStringInRange(string& u);
-    bool validateUser(string& u, string& uType);
-    bool validateGame(string& g);
+    bool isStringInRange(const string& u);
+    bool validateUser(const string& u,const string& uType);
+    bool validateGame(const string& g);
     bool validatePrice(double p);
 };
 //---------------------------------------------
@@ -108,25 +134,6 @@ private:
     // Private helper method to log transaction details
     void logTransaction(const std::string& transactionDetails);
 };
-//---------------------------------------------
-class User {
-private:
-    string username;
-    string userType;
-    double balance;
 
-public:
-    User(string username, string userType, double balance);
-    User();
-    string getUsername();
-    string getUserType();
-    double getBalance();
-    void setBalance(double balance);
-    void setUsername(string username);
-    void setUserType(string userType);
-    void deposit(double amount);
-    void withdraw(double amount);
-};
-//---------------------------------------------
 
 #endif 

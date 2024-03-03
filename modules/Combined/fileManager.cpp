@@ -86,6 +86,34 @@
 
     }
 
+    bool FileManager::isUserExists(string username){
+        string filename = "users.txt";
+        ifstream inFile(filename, ios::app);
+        string line;
+
+
+        if (inFile.is_open()) {
+            while(getline(inFile, line)) {
+                if(line.find(username)) {
+                    inFile.close();
+                    return true;
+                }
+            }
+            inFile.close();
+        } else {
+            cout << "Unable to open file: " << filename << endl;
+        }
+
+        return false;
+    }
+
+
+    bool isUserExists(string name) {
+
+    }
+
+
+
 
 
 
