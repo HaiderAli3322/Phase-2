@@ -1,47 +1,60 @@
 // TransactionProcessor.cpp
-#include "TransactionProcessor.h"
+#include "../transactionprocessor/TransactionProcessor.h"
 #include <iostream>
 #include <cctype>
 #include <fstream>
 #include <iomanip>
 #include <limits>
+#include "../session/Session.h"
+#include "../user/User.h"
+#include "../game/Game.h"
+#include <algorithm>  // for std::all_of
+#include <vector>
+#include "../filemanager/FileManager.h"
 
+
+//initializes transactionprocessor and instances of filemanager and session, and initial login state
 TransactionProcessor::TransactionProcessor(FileManager& fm, Session& session)
-    : fileManager(fm), currentSession(session), isLoggedIn(false) {}
+        : fileManager(fm), currentSession(session), isLoggedIn(false) {}
 
-bool TransactionProcessor::isUserLoggedIn() const {
+bool TransactionProcessor::isUserLoggedIn() const {//checks if user is logged in
     return isLoggedIn;
 }
 
+//checks digital code to process specific transaction
 void TransactionProcessor::processTransaction(const std::string& transactionCode) {
-    std::string digitCode = transactionCode.substr(0, 2);
+    std::string digitCode = transactionCode.substr(0, 2);//
 
-    if (digitCode != "01" && digitCode != "00" && !isUserLoggedIn()) {
+    if (digitCode != "10" && !isUserLoggedIn()) {
         std::cout << "Error: User must log in before processing transactions." << std::endl;
         return;
     }
 
-    if (digitCode == "01") processLogin();
-    else if (digitCode == "02") processLogout();
+    if (digitCode == "10") processLogin();// i'm not sure if there is a digital code for login
+    else if (digitCode == "00") processLogout();
+    else if (digitCode == "01") processCreate();
+    else if (digitCode == "02") processDelete();
     else if (digitCode == "03") processSell();
     else if (digitCode == "04") processBuy();
     else if (digitCode == "05") processRefund();
     else if (digitCode == "06") processAddCredit();
-    else if (digitCode == "00") processEndOfSession();
+        //else if (digitCode == "00") processEndOfSession(); should be part of process logout
     else std::cout << "Error: Invalid transaction code: " << digitCode << std::endl;
 }
 
-bool isAlphanumeric(const std::string& str) {
+bool isAlphanumeric(const std::string& str) {//checks if string is alphanumeric
     return std::all_of(str.begin(), str.end(), [](unsigned char c) { return std::isalnum(c); });
 }
 
-void TransactionProcessor::processCreate() {
+void TransactionProcessor::processCreate() { // checks user list
     if (!isUserLoggedIn()) {
         std::cout << "Error: User must log in before creating a new user account." << std::endl;
         return;
     }
 
-    if (currentSession.currentUser.getUserType() != "admin") {
+    const User* currentUser = currentSession.getCurrentUser();
+
+    if (currentUser && currentUser->getUserType() != "admin") {
         std::cout << "Error: Only admin users can create new user accounts." << std::endl;
         return;
     }
@@ -55,10 +68,11 @@ void TransactionProcessor::processCreate() {
         return;
     }
 
-    if (fileManager.isUserExists(newUsername)) {
+    if (class fileManager::doesUserExists(newUsername)) {
         std::cout << "Error: User '" << newUsername << "' already exists." << std::endl;
         return;
     }
+
 
     std::string userType;
     std::cout << "Enter the type of user (admin, full-standard, buy-standard, sell-standard): ";
@@ -80,13 +94,15 @@ void TransactionProcessor::processCreate() {
     logTransaction("Create transaction processed successfully");
 }
 
-void TransactionProcessor::processDelete() {
+void TransactionProcessor::processDelete() { //checks user list for username
     if (!isUserLoggedIn()) {
         std::cout << "Error: User must log in before deleting a user account." << std::endl;
         return;
     }
 
-    if (currentSession.currentUser.getUserType() != "admin") {
+    const User* currentUser = currentSession.getCurrentUser();
+
+    if (currentUser && currentUser->getUserType() != "admin") {
         std::cout << "Error: Only admin users can delete user accounts." << std::endl;
         return;
     }
@@ -95,7 +111,7 @@ void TransactionProcessor::processDelete() {
     std::cout << "Enter the username to delete: ";
     std::getline(std::cin, usernameToDelete);
 
-    if (!fileManager.isUserExists(usernameToDelete)) {
+    if (!fileManager.doesUserExists(usernameToDelete)) {
         std::cout << "Error: User '" << usernameToDelete << "' does not exist." << std::endl;
         return;
     }
@@ -114,13 +130,15 @@ void TransactionProcessor::processDelete() {
     logTransaction("Delete transaction processed successfully");
 }
 
-void TransactionProcessor::processSell() {
+void TransactionProcessor::processSell() { // checks game list, and user type
     if (!isUserLoggedIn()) {
         std::cout << "Error: User must log in before selling a game." << std::endl;
         return;
     }
 
-    if (currentSession.currentUser.getUserType() == "buy-standard") {
+    const User* currentUser = currentSession.getCurrentUser();
+
+    if (currentUser && currentUser->getUserType() == "buy-standard"||"BS") {
         std::cout << "Error: buy-standard users cannot sell games." << std::endl;
         return;
     }
@@ -146,15 +164,15 @@ void TransactionProcessor::processSell() {
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     std::string transactionCode = "03_" + gameName + "_" + currentSession.currentUser.getUsername() + "_" + std::to_string(price);
-    fileManager.writeTransactionFile(transactionCode);
+    FileManager.writeTransactionFile(transactionCode);
 
     Game updatedGame(gameName, currentSession.currentUser.getUsername(), price);
-    fileManager.updateGamesFile(updatedGame);
+    FileManager.updateGamesFile(updatedGame);
 
     logTransaction("Game successfully listed for sale.");
 }
 
-void TransactionProcessor::processBuy() {
+void TransactionProcessor::processBuy() {// checks available game list, as well as username, user type, and balance
     if (!isUserLoggedIn()) {
         std::cout << "Error: User must log in before making a purchase." << std::endl;
         return;
@@ -183,7 +201,7 @@ void TransactionProcessor::processBuy() {
         return;
     }
 
-    double gamePrice = fileManager.getGamePrice(gameName);
+    double gamePrice = FileManager.getGamePrice(gameName);
 
     if (currentSession.currentUser.getAccountBalance() < gamePrice) {
         std::cout << "Error: Insufficient funds. You do not have enough money to purchase the game." << std::endl;
@@ -206,7 +224,7 @@ void TransactionProcessor::processBuy() {
     logTransaction("Buy transaction processed successfully");
 }
 
-void TransactionProcessor::processRefund() {
+void TransactionProcessor::processRefund() {// should check user list for user information like username and balance/credits
     if (!isUserLoggedIn()) {
         std::cout << "Error: User must log in before processing a refund." << std::endl;
         return;
@@ -254,7 +272,7 @@ void TransactionProcessor::processRefund() {
     logTransaction("Refund transaction processed successfully");
 }
 
-void TransactionProcessor::processAddCredit() {
+void TransactionProcessor::processAddCredit() {// checks username, user type, and balance/credits
     if (!isUserLoggedIn()) {
         std::cout << "Error: User must log in before adding credit." << std::endl;
         return;
@@ -297,7 +315,7 @@ void TransactionProcessor::processAddCredit() {
     logTransaction("Add credit transaction processed successfully");
 }
 
-void TransactionProcessor::processList() {
+void TransactionProcessor::processList() { //displays all purchasable games, with game info
     if (!isUserLoggedIn()) {
         std::cout << "Error: User must log in before listing items." << std::endl;
         return;
@@ -318,13 +336,14 @@ void TransactionProcessor::processList() {
     logTransaction("List transaction processed successfully");
 }
 
-void TransactionProcessor::processUserList() {
+void TransactionProcessor::processUserList() {// checks the active user list, and account info username, user type, balance/credits
     if (!isUserLoggedIn()) {
         std::cout << "Error: User must log in before viewing the user list." << std::endl;
         return;
     }
 
-    if (currentSession.currentUser.getUserType() != "admin") {
+
+    if (currentUser && currentUser->getUserType() != "admin") {
         std::cout << "Error: User must be an admin to view the user list." << std::endl;
         return;
     }
@@ -337,14 +356,14 @@ void TransactionProcessor::processUserList() {
     for (const auto& user : usersFile) {
         std::cout << "Username: " << user.getUsername() << std::endl;
         std::cout << "Account Type: " << user.getUserType() << std::endl;
-        std::cout << "Credit: $" << user.getCredit() << std::endl;
+        std::cout << "Credit: $" << user.getBalance() << std::endl;
         std::cout << "---------------------" << std::endl;
     }
 
     logTransaction("User List transaction processed successfully");
 }
 
-void TransactionProcessor::processEndOfSession() {
+void TransactionProcessor::processEndOfSession() {//should be part of log out
     if (!isUserLoggedIn()) {
         std::cout << "Error: User must log in before ending the session." << std::endl;
         return;
@@ -359,9 +378,9 @@ void TransactionProcessor::processEndOfSession() {
     logTransaction("End of Session transaction processed successfully");
 }
 
-void TransactionProcessor::processLogin() {
+void TransactionProcessor::processLogin() {//checks for user, as well as defines the usertype in the given session, can change this to be simpler
     if (isUserLoggedIn()) {
-        std::cout << "Error: User '" << currentSession.currentUser.getUsername() << "' is already logged in." << std::endl;
+        std::cout << "Error: User '" << currentSession.getCurrentUser() << "' is already logged in." << std::endl;
         return;
     }
 
@@ -369,7 +388,7 @@ void TransactionProcessor::processLogin() {
     std::cout << "Enter your username: ";
     std::getline(std::cin, username);
 
-    if (!fileManager.isUserExists(username)) {
+    if (fileManager.doesUserExists(username)) {
         std::cout << "Error: User '" << username << "' does not exist." << std::endl;
         return;
     }
@@ -392,28 +411,30 @@ void TransactionProcessor::processLogout() {
         std::cout << "Error: No user is currently logged in." << std::endl;
         return;
     }
+    const User* currentUser = currentSession.getCurrentUser();
 
-    std::cout << "Logout successful. Goodbye, " << currentSession.currentUser.getUsername() << "!" << std::endl;
+    std::cout << "Logout successful. Goodbye, " << currentSession.getCurrentUser() << "!" << std::endl;
     currentSession.endSession();
     logTransaction("Logout transaction processed successfully");
 }
-
+//to write the daily transaction file and should should be part of log out
 void TransactionProcessor::writeDailyTransactionFile(const std::vector<std::string>& transactions) {
-    std::ofstream dailyTransactionFile(fileManager.getDailyTransactionFilePath(), std::ios_base::app);
+    std::ofstream dailyTransactionFile(FileManager.getDailyTransactionFilePath(), std::ios_base::app);
 
-    if (dailyTransactionFile.is_open()) {
+    if (fileManager::readTransactionsFile.is_open()) {
         for (const auto& transaction : transactions) {
             dailyTransactionFile << transaction << std::endl;
         }
-        dailyTransactionFile.close();
     }
     else {
         std::cerr << "Error: Unable to open daily transaction file for writing." << std::endl;
     }
-}
 
+    dailyTransactionFile.close();
+}
+//might not need this, but it was to log the transactions in the given session
 void TransactionProcessor::logTransaction(const std::string& logMessage) const {
-    std::ofstream logFile(fileManager.getLogFilePath(), std::ios_base::app);
+    std::ofstream logFile(FileManager.getLogFilePath(), std::ios_base::app);
 
     if (logFile.is_open()) {
         logFile << logMessage << std::endl;

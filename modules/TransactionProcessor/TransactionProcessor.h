@@ -1,7 +1,8 @@
 #ifndef TRANSACTIONPROCESSOR_H
 #define TRANSACTIONPROCESSOR_H
 
-#include <string>  // Include necessary headers
+#include <string>
+#include <vector>
 
 // Forward declarations
 class FileManager;
@@ -11,10 +12,10 @@ class TransactionProcessor {
 private:
     FileManager& fileManager;  // Reference to FileManager object
     Session& currentSession;   // Reference to Session object
+    bool isLoggedIn;
 
     // Private helper method to check if a user is logged in
     bool isUserLoggedIn() const;
-
 public:
     // Constructor with references to FileManager and Session objects
     TransactionProcessor(FileManager& fm, Session& session);
@@ -26,6 +27,8 @@ private:
     // Private helper methods for each transaction type
     void processLogin();
     void processLogout();
+    void writeDailyTransactionFile(const std::vector<std::string>& transactions);
+    void logTransaction(const std::string& logMessage) const;
     void processCreate();
     void processDelete();
     void processSell();
@@ -36,8 +39,6 @@ private:
     void processUserList();
     void processEndOfSession();
 
-    // Private helper method to log transaction details
-    void logTransaction(const std::string& transactionDetails);
 };
 
 #endif // TRANSACTIONPROCESSOR_H
