@@ -191,8 +191,8 @@ void TransactionProcessor::processBuy() {
         std::cout << "Error: Seller '" << sellerName << "' does not exist." << std::endl;
         return;
     }
-
-    double gamePrice = fileManager.getGamePrice(gameName);
+    Game gameBeingSold = Game::getGameByName(gameName);
+    double gamePrice = gameBeingSold.getGamePrice();
 
     if (currentSession.getCurrentSession()->getBalance() < gamePrice) {
         std::cout << "Error: Insufficient funds. You do not have enough money to purchase the game." << std::endl;
@@ -212,7 +212,7 @@ void TransactionProcessor::processBuy() {
     currentSession.getCurrentSession()->addGame(gameName);
 
     std::string transactionCode = "04_" + gameName + "_" + sellerName + "_" + currentSession.getCurrentSession()->getUsername() + "_" + std::to_string(gamePrice);
-    fileManager.writeDailyTransactionFile(transactionCode);
+    fileManager.writeDailyTransactionFile("dailyTransaction",transactionCode);
 
     std::cout << "Purchase successful. You now own the game '" << gameName << "'." << std::endl;
     logTransaction("Buy transaction processed successfully");

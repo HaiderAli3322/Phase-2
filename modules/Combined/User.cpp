@@ -84,7 +84,7 @@ User getUserByName(string name) {
             stringstream check1(line);
             string intermediate;
 
-            while(getline(check1, intermediate, ',')) {
+            while(getline(check1, intermediate, '_')) {
                 tokens.push_back(intermediate);
             }
 
