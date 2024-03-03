@@ -121,13 +121,13 @@ private:
 public:
     // Constructor with references to FileManager and Session objects
     TransactionProcessor(FileManager& fm, Session& session);
+    TransactionProcessor();
 
     // Method to process a transaction
     void processTransaction(const std::string& transactionCode);
     bool isUserLoggedIn() const;
-    
-private:
-    // Private helper methods for each transaction type
+
+    //helper methods for each transaction type
     void processLogin();
     void processLogout();
     void processCreate();
@@ -139,6 +139,7 @@ private:
     void processList();
     void processUserList();
     void processEndOfSession();
+private:
     void appendTransaction(const std::string& transactionDetails);
     std::vector<std::string>& getSessionTransactions();
     // Private helper method to log transaction details
