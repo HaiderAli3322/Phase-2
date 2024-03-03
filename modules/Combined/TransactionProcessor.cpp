@@ -205,8 +205,10 @@ void TransactionProcessor::processBuy() {
         return;
     }
 
+    User seller = User::getUserByName(sellerName);
+
     currentSession.getCurrentSession()->withdraw(gamePrice);
-    fileManager.getUserByUsername(sellerName).creditAmount(gamePrice);
+    fileManager.updateUsersFile("users.txt", sellerName, seller.getUserType(), gamePrice);
     currentSession.getCurrentSession()->addGame(gameName);
 
     std::string transactionCode = "04_" + gameName + "_" + sellerName + "_" + currentSession.getCurrentSession()->getUsername() + "_" + std::to_string(gamePrice);

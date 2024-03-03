@@ -30,6 +30,7 @@ public:
     bool ownsGame(const std::string& name);
     void addGame(const std::string& name);
     void removeGame(const std::string& name);
+    static User getUserByName(string name);
 };
 //---------------------------------------------
 

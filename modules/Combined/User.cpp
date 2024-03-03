@@ -3,6 +3,8 @@
 //
 
 #include "header.h"
+#include "vector"
+#include "sstream"
 
 //Constructor
 User::User(string username, string userType, double balance) {
@@ -69,5 +71,29 @@ void User::addGame(const std::string &name) {
 
 void User::removeGame(const std::string &name) {
     ownedGames.erase(name);
+}
+
+User getUserByName(string name) {
+    ifstream inFile("users.txt");
+    string line;
+
+    if(inFile.is_open()) {
+        while(getline(inFile, line)) {
+
+            vector<string> tokens;
+            stringstream check1(line);
+            string intermediate;
+
+            while(getline(check1, intermediate, ',')) {
+                tokens.push_back(intermediate);
+            }
+
+            if(tokens[0] == name) {
+                return User(tokens[0], tokens[1], stod(tokens[2]));
+            }
+
+
+        }
+    }
 }
 
