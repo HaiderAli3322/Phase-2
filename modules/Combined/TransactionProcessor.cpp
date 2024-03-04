@@ -10,8 +10,7 @@
 
 using namespace std;
 
-TransactionProcessor::TransactionProcessor(FileManager& fm, Session& session)
-    : fileManager(fm), currentSession(session), isLoggedIn(false) {}
+
 
 bool TransactionProcessor::isUserLoggedIn() const {
     return isLoggedIn;
@@ -200,7 +199,8 @@ void TransactionProcessor::processBuy() {
         std::cout << "Error: Seller '" << sellerName << "' does not exist." << std::endl;
         return;
     }
-    Game gameBeingSold = Game::getGameByName(gameName);
+    Game gameInstance;
+    Game gameBeingSold = gameInstance.getGameByName(gameName);
     double gamePrice = gameBeingSold.getGamePrice();
 
     if (currentSession.getCurrentSession()->getBalance() < gamePrice) {
@@ -213,8 +213,8 @@ void TransactionProcessor::processBuy() {
         std::cout << "Error: You already own a copy of the game '" << gameName << "'." << std::endl;
         return;
     }
-
-    User seller = User::getUserByName(sellerName);
+    User userInstance;
+    User seller = userInstance.getUserByName(sellerName);
 
     currentSession.getCurrentSession()->withdraw(gamePrice);
     fileManager.updateUsersFile("users.txt", sellerName, seller.getUserType(), gamePrice);
@@ -264,9 +264,9 @@ void TransactionProcessor::processRefund() {
         std::cout << "Error: Invalid credit amount. Please enter a positive value." << std::endl;
         return;
     }
-
-    User seller = User::getUserByName(sellerName);
-    User buyer = User::getUserByName(buyerName);
+    User userinstance;
+    User seller = userinstance.getUserByName(sellerName);
+    User buyer = userinstance.getUserByName(buyerName);
     
     seller.withdraw(creditAmount);
     buyer.deposit(creditAmount);
@@ -314,8 +314,8 @@ void TransactionProcessor::processAddCredit() {
         std::cout << "Error: Invalid credit amount. Please enter a positive value up to $1000.00." << std::endl;
         return;
     }
-
-    User user = User::getUserByName(username);
+    User userinstance;
+    User user = userinstance.getUserByName(username);
     user.deposit(creditAmount);
 
     std::string transactionCode = "06_" + username + "_$" + std::to_string(creditAmount);
@@ -411,7 +411,8 @@ void TransactionProcessor::processLogin() {
         std::cout << "Error: User '" << username << "' does not exist." << std::endl;
         return;
     }
-    User user = User::getUserByName(username);
+    User userinstance;
+    User user = userinstance.getUserByName(username);
     string userType = user.getUserType();
 
     if (userType == "admin" || userType == "full-standard" || userType == "buy-standard" || userType == "sell-standard") {

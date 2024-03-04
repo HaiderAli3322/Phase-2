@@ -32,7 +32,7 @@ public:
     bool ownsGame(const std::string& name);
     void addGame(const std::string& name);
     void removeGame(const std::string& name);
-    static User getUserByName(string name);
+    User getUserByName(string name);
 };
 //---------------------------------------------
 
@@ -52,7 +52,7 @@ public:
     string getGameName();
     string getSellerName();
     double getGamePrice();
-    static Game getGameByName(string name);
+    Game getGameByName(string name);
 
 };
 //---------------------------------------------
@@ -101,12 +101,12 @@ public:
     User* getCurrentSession() const;
 };
 //---------------------------------------------
-class Transaction{
-protected:
-    string transactionCode;
-public:
-    bool parse();
-};
+// class Transaction{
+// protected:
+//     string transactionCode;
+// public:
+//     bool parse();
+// };
 //---------------------------------------------
 
 
@@ -121,8 +121,8 @@ private:
 
 public:
     // Constructor with references to FileManager and Session objects
-    TransactionProcessor(FileManager& fm, Session& session);
     TransactionProcessor();
+    
 
     // Method to process a transaction
     void processTransaction(const std::string& transactionCode);

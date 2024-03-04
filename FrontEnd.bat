@@ -15,34 +15,46 @@ echo 8. AddCredit
 echo 9. Exit
 set /p choice=Enter your choice: 
 
-if "!choice!"=="1" goto login
-if "!choice!"=="2" goto logout
-if "!choice!"=="3" goto create
-if "!choice!"=="4" goto delete
-if "!choice!"=="5" goto sell
-if "!choice!"=="6" goto buy
-if "!choice!"=="7" goto refund
-if "!choice!"=="8" goto addcredit
-if "!choice!"=="9" goto end
-
-echo Invalid choice, please try again.
-goto main
+if "!choice!"=="1" (
+    goto login
+) else if "!choice!"=="2" (
+    goto logout
+) else if "!choice!"=="3" (
+    goto create
+) else if "!choice!"=="4" (
+    goto delete
+) else if "!choice!"=="5" (
+    goto sell
+) else if "!choice!"=="6" (
+    goto buy
+) else if "!choice!"=="7" (
+    goto refund
+) else if "!choice!"=="8" (
+    goto addcredit
+) else if "!choice!"=="9" (
+    goto end
+) else (
+    echo Invalid choice, please try again.
+    goto main
+)
 
 :login
-set /p username=Enter your username: 
-
-REM Assuming users.txt contains a list of valid usernames, one per line
-findstr /x /m "!username!" users.txt > nul
-if %errorlevel% == 0 (
+echo Current users:
+type "users.txt"
+echo.
+echo Enter your username:
+set /p username=
+findstr /x /m "!username!" "users.txt" > nul
+if !errorlevel! == 0 (
     echo Login successful. Welcome, !username!
-    REM Set a flag indicating the user is logged in
     set loggedIn=1
-    REM Proceed with loading games file or other initializations here
+    set loggedInUser=!username!
 ) else (
     echo Login failed. Username not found.
 )
-
 goto main
+
+
 
 
 :logout
@@ -51,57 +63,59 @@ if not defined loggedIn (
     goto main
 )
 
-REM Perform any necessary cleanup actions here
 echo Writing to daily transaction file...
-REM Placeholder for command to write logout transaction to a file
-
-echo Logout successful. Goodbye, %username%.
+echo Logout successful. Goodbye, !username!.
 set loggedIn=
 set username=
 goto main
 
-
 :create
-if "%loggedIn%" NEQ "admin" (
+if not "!loggedInUser!"=="admin" (
     echo This operation is only available to admin users.
     goto main
 )
 
-set /p newUsername=Enter new username (max 15 chars): 
-REM Validate new username length and uniqueness
-echo %newUsername% | findstr /R "^..............." > nul && echo Username too long && goto create
-findstr /x /m "%newUsername%" users.txt > nul && echo Username already exists && goto create
+echo Enter new username (max 15 chars):
+set /p newUsername=
 
-set /p userType=Enter type of user (admin, full-standard, buy-standard, sell-standard): 
-REM Validate user type
-if "%userType%" NEQ "admin" if "%userType%" NEQ "full-standard" if "%userType%" NEQ "buy-standard" if "%userType%" NEQ "sell-standard" (
-    echo Invalid user type.
+echo Entered Username: '!newUsername!'
+
+
+echo !newUsername! | findstr /R "^...............$" > nul && (
+    echo Username too long
     goto create
 )
 
-REM Assuming daily transaction file setup
-echo Create %newUsername% %userType% >> daily_transactions.txt
-echo User %newUsername% created as %userType%.
+findstr /x /m "!newUsername!" "users.txt" > nul && (
+    echo Username already exists
+    goto create
+)
+
+echo Enter type of user (admin, full-standard, buy-standard, sell-standard):
+set /p userType=
+
+
+echo !newUsername! >> "users.txt"
+
+echo Adding to users.txt: !newUsername!
+
 goto main
-
-
 :delete
-if "%loggedIn%" NEQ "admin" (
+
+if not "!loggedInUser!"=="admin" (
     echo This operation is only available to admin users.
     goto main
 )
-
-set /p usernameToDelete=Enter the username to delete: 
-findstr /x /m "%usernameToDelete%" users.txt > nul
-if %errorlevel% NEQ 0 (
+echo Enter the username to delete: 
+set /p usernameToDelete=
+findstr /x /m "!usernameToDelete!" "users.txt" > nul
+if !errorlevel! NEQ 0 (
     echo User does not exist.
     goto main
 )
-
-echo Delete %usernameToDelete% >> daily_transactions.txt
-echo User %usernameToDelete% successfully deleted.
+echo Delete !usernameToDelete! >> daily_transactions.txt
+echo User !usernameToDelete! successfully deleted.
 goto main
-
 
 :sell
 if not defined loggedIn (
@@ -130,7 +144,6 @@ if "%userType%"=="sell-standard" (
 )
 
 set /p gameName=Enter the game name you wish to purchase: 
-REM Placeholder for fetching game price and user's available credits
 set gamePrice=50
 set userCredits=100
 
@@ -139,7 +152,6 @@ if %userCredits% LSS %gamePrice% (
     goto main
 )
 
-REM Deduct gamePrice from userCredits here
 echo Buy %gameName% >> daily_transactions.txt
 echo You have bought %gameName%.
 goto main
@@ -172,7 +184,6 @@ if "%userType%"=="admin" (
 echo AddCredit %username% %amount% >> daily_transactions.txt
 echo Added %amount% credit to %username%.
 goto main
-
 
 :end
 echo Exiting...

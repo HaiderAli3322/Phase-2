@@ -37,7 +37,7 @@ void Game::setPrice(double price){
 }
 
 Game getGameByName(string name) {
-    ifstream inFile("users.txt");
+    ifstream inFile("games.txt");
     string line;
 
     if(inFile.is_open()) {
