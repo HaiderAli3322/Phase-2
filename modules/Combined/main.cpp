@@ -29,7 +29,7 @@ int main() {
         } else if (option == 2) {
             tp.processLogout();
         } else if (option == 3) {
-            tp.processBuy();
+            //tp.processBuy();
         } else if (option == 4) {
             tp.processRefund();
         } else if (option == 5) {

@@ -5,9 +5,14 @@
 using namespace std;
 
 Game::Game(const std::string& g, const std::string& u, double p){
-    gameName = g;
-    userName = u;
-    price = p;
+    this->gameName = g;
+    this->userName = u;
+    this->price = p;
+}
+Game::Game() {
+    this->gameName = "";
+    this->userName = "";
+    this->price = 0;
 }
      
 
@@ -21,9 +26,18 @@ string Game::getSellerName(){
 double Game::getGamePrice(){
     return price;
 }
+void Game::setGameName(string name){
+    this->gameName=name;
+}
+void Game::setSellerName(string name){
+    this->userName=name;
+}
+void Game::setPrice(double price){
+    this->price=price;
+}
 
 Game getGameByName(string name) {
-    ifstream inFile("game.txt");
+    ifstream inFile("users.txt");
     string line;
 
     if(inFile.is_open()) {
@@ -44,7 +58,10 @@ Game getGameByName(string name) {
 
         }
     }
+    return Game();
 }
+
+
 
 //traverse through games owned by a user to check the the game is owned by him
 // boolean isOwnedBy(User user){

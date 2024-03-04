@@ -199,9 +199,9 @@ void FileManager::removeUser(const string& username) {
     }
 }
 
-bool isUserExists(string name) {
 
-    }
+
+  
 
 
 

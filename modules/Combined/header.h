@@ -1,13 +1,13 @@
 
 
-#ifndef FILEMANGER_FILEMANAGER_H
-#define FILEMANGER_FILEMANAGER_H
+#ifndef HEADER_H
+#define HEADER_H
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <set>
 #include "vector"
-#include "Game.cpp"
+
 
 using namespace std;
 //---------------------------------------------
@@ -39,11 +39,12 @@ public:
 class Game {
 private:
 
-    string gameName="";
-    string userName="";
-    double price=0;
+    string gameName;
+    string userName;
+    double price;
 
 public:
+    Game();
     Game(const std::string& g, const std::string& u, double p);
     void setGameName(string g);
     void setSellerName(string u);

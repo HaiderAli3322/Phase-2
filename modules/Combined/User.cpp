@@ -95,5 +95,6 @@ User getUserByName(string name) {
 
         }
     }
+    return User();
 }
 
