@@ -16,900 +16,13 @@ s
 t
 
 Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
-
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
 
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
 
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
+Welcome 
+Authority admin
+Credits 
 
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
 
-Enter your username:
-Login successful. Welcome, admin
 Welcome to the Front End Session Simulator
 Please choose a transaction:
 1. Login
@@ -928,83 +41,14 @@ s
 t
 
 Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
+Login failed. Username not found.
 
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
 
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
+Welcome 
+Authority admin
+Credits 
 
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
 
-Enter your username:
-Login successful. Welcome, admin
 Welcome to the Front End Session Simulator
 Please choose a transaction:
 1. Login
@@ -1023,64 +67,14 @@ s
 t
 
 Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
+Login failed. Username not found.
 
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
 
-Enter your username:
-Login successful. Welcome, admin
-Welcome to the Front End Session Simulator
-Please choose a transaction:
-1. Login
-2. Logout
-3. Create
-4. Delete
-5. Sell
-6. Buy
-7. Refund
-8. AddCredit
-9. Exit
-Enter your choice: Current users:
-admin
-k
-s
-t
+Welcome 
+Authority admin
+Credits 
 
-Enter your username:
-Login successful. Welcome, admin
+
 Welcome to the Front End Session Simulator
 Please choose a transaction:
 1. Login
@@ -1099,7 +93,14 @@ s
 t
 
 Enter your username:
-Login successful. Welcome, admin
+Login failed. Username not found.
+
+
+Welcome 
+Authority admin
+Credits 
+
+
 Welcome to the Front End Session Simulator
 Please choose a transaction:
 1. Login
@@ -1118,7 +119,14 @@ s
 t
 
 Enter your username:
-Login successful. Welcome, admin
+Login failed. Username not found.
+
+
+Welcome 
+Authority admin
+Credits 
+
+
 Welcome to the Front End Session Simulator
 Please choose a transaction:
 1. Login
@@ -1137,7 +145,14 @@ s
 t
 
 Enter your username:
-Login successful. Welcome, admin
+Login failed. Username not found.
+
+
+Welcome 
+Authority admin
+Credits 
+
+
 Welcome to the Front End Session Simulator
 Please choose a transaction:
 1. Login
@@ -1156,7 +171,14 @@ s
 t
 
 Enter your username:
-Login successful. Welcome, admin
+Login failed. Username not found.
+
+
+Welcome 
+Authority admin
+Credits 
+
+
 Welcome to the Front End Session Simulator
 Please choose a transaction:
 1. Login
@@ -1175,7 +197,14 @@ s
 t
 
 Enter your username:
-Login successful. Welcome, admin
+Login failed. Username not found.
+
+
+Welcome 
+Authority admin
+Credits 
+
+
 Welcome to the Front End Session Simulator
 Please choose a transaction:
 1. Login
@@ -1194,7 +223,14 @@ s
 t
 
 Enter your username:
-Login successful. Welcome, admin
+Login failed. Username not found.
+
+
+Welcome 
+Authority admin
+Credits 
+
+
 Welcome to the Front End Session Simulator
 Please choose a transaction:
 1. Login
@@ -1213,7 +249,14 @@ s
 t
 
 Enter your username:
-Login successful. Welcome, admin
+Login failed. Username not found.
+
+
+Welcome 
+Authority admin
+Credits 
+
+
 Welcome to the Front End Session Simulator
 Please choose a transaction:
 1. Login
@@ -1232,7 +275,14 @@ s
 t
 
 Enter your username:
-Login successful. Welcome, admin
+Login failed. Username not found.
+
+
+Welcome 
+Authority admin
+Credits 
+
+
 Welcome to the Front End Session Simulator
 Please choose a transaction:
 1. Login
@@ -1251,7 +301,14 @@ s
 t
 
 Enter your username:
-Login successful. Welcome, admin
+Login failed. Username not found.
+
+
+Welcome 
+Authority admin
+Credits 
+
+
 Welcome to the Front End Session Simulator
 Please choose a transaction:
 1. Login
@@ -1270,7 +327,14 @@ s
 t
 
 Enter your username:
-Login successful. Welcome, admin
+Login failed. Username not found.
+
+
+Welcome 
+Authority admin
+Credits 
+
+
 Welcome to the Front End Session Simulator
 Please choose a transaction:
 1. Login
@@ -1289,7 +353,14 @@ s
 t
 
 Enter your username:
-Login successful. Welcome, admin
+Login failed. Username not found.
+
+
+Welcome 
+Authority admin
+Credits 
+
+
 Welcome to the Front End Session Simulator
 Please choose a transaction:
 1. Login
@@ -1308,7 +379,14 @@ s
 t
 
 Enter your username:
-Login successful. Welcome, admin
+Login failed. Username not found.
+
+
+Welcome 
+Authority admin
+Credits 
+
+
 Welcome to the Front End Session Simulator
 Please choose a transaction:
 1. Login
@@ -1327,7 +405,14 @@ s
 t
 
 Enter your username:
-Login successful. Welcome, admin
+Login failed. Username not found.
+
+
+Welcome 
+Authority admin
+Credits 
+
+
 Welcome to the Front End Session Simulator
 Please choose a transaction:
 1. Login
@@ -1346,7 +431,14 @@ s
 t
 
 Enter your username:
-Login successful. Welcome, admin
+Login failed. Username not found.
+
+
+Welcome 
+Authority admin
+Credits 
+
+
 Welcome to the Front End Session Simulator
 Please choose a transaction:
 1. Login
@@ -1365,7 +457,14 @@ s
 t
 
 Enter your username:
-Login successful. Welcome, admin
+Login failed. Username not found.
+
+
+Welcome 
+Authority admin
+Credits 
+
+
 Welcome to the Front End Session Simulator
 Please choose a transaction:
 1. Login
@@ -1384,7 +483,14 @@ s
 t
 
 Enter your username:
-Login successful. Welcome, admin
+Login failed. Username not found.
+
+
+Welcome 
+Authority admin
+Credits 
+
+
 Welcome to the Front End Session Simulator
 Please choose a transaction:
 1. Login
@@ -1403,7 +509,14 @@ s
 t
 
 Enter your username:
-Login successful. Welcome, admin
+Login failed. Username not found.
+
+
+Welcome 
+Authority admin
+Credits 
+
+
 Welcome to the Front End Session Simulator
 Please choose a transaction:
 1. Login
@@ -1422,7 +535,14 @@ s
 t
 
 Enter your username:
-Login successful. Welcome, admin
+Login failed. Username not found.
+
+
+Welcome 
+Authority admin
+Credits 
+
+
 Welcome to the Front End Session Simulator
 Please choose a transaction:
 1. Login
@@ -1441,7 +561,14 @@ s
 t
 
 Enter your username:
-Login successful. Welcome, admin
+Login failed. Username not found.
+
+
+Welcome 
+Authority admin
+Credits 
+
+
 Welcome to the Front End Session Simulator
 Please choose a transaction:
 1. Login
@@ -1460,7 +587,14 @@ s
 t
 
 Enter your username:
-Login successful. Welcome, admin
+Login failed. Username not found.
+
+
+Welcome 
+Authority admin
+Credits 
+
+
 Welcome to the Front End Session Simulator
 Please choose a transaction:
 1. Login
@@ -1479,3 +613,4 @@ s
 t
 
 Enter your username:
+Login failed. Username not found.
