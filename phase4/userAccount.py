@@ -10,12 +10,6 @@ class userAccount:
 
     def withdrawBalance(self, balance):
         self.balance -= balance
-    
-    def validateUser(self):
-        if(len(self.userName)>16 or len(self.userName)<0):
-            print("Invalid length of username")
-        else:
-            print("user is valid")
 
     def getUserCollection(self):
         self.gameCollection.listCollection
