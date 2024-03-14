@@ -20,3 +20,12 @@ class FileManager:
         f=open(fileName,"a")
         f.write(transaction)
         f.close
+
+def main():
+    fileManager = FileManager("transactions.txt")
+    fileManager.readFile("transactions.txt")
+    fileManager.logError("errorLog.txt","Error: File not found")
+    fileManager.updateFile("transactions.txt","John Doe has deposited $1001\n")
+
+if __name__ == "__main__":
+    main()
