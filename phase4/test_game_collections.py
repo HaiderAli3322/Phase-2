@@ -52,7 +52,7 @@ class TestGameCollections:
         captured = capsys.readouterr()
 
         # Assert printed output
-        assert captured.out.strip() == "\nAdded New Game to the collection."
+        assert captured.out.strip() == "Added New Game to the collection."
 
     def test_list_collection(self, capsys):
         # Test data

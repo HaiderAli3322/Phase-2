@@ -18,14 +18,8 @@ class GameCollections:
 def main():
     games_collection = GameCollections(["The Witcher", "Valorant", "Minecraft"])
     print("Initial Game Collection:")
+    games_collection.addToCollection("test1")
     games_collection.listCollection()
-    games_collection.addToCollection("Rocket League")
-    print("\nUpdated Game Collection:")
-    games_collection.listCollection()
-    games_collection.removeFromCollection("Valorant")
-    print("\nUpdated Game Collection after removing Valorant:")
-    games_collection.listCollection()
-    games_collection.removeFromCollection("Fifa 24")
 
 if __name__ == "__main__":
     main()
